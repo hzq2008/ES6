@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>promise和ajax异步操做</title>
+    <script src="jquery-1.83.js"></script>
+    <script>
+        let obj = new Promise((resolve, reject)=>{
+            $.ajax({
+                url:"1.txt",
+                dataType:"json",
+                type:"GET",
+                data:"",
+                success(arr){
+                    resolve(arr);
+                },
+                error(err){
+                    reject(err);
+                }
+            });
+        });
+
+        obj.then(arr=>{
+            alert(`成功了,${arr}`);
+        },err=>{
+            alert(`失败了,${err}`);
+        });
+       
+    </script>
+</head>
+<body>
+    
+</body>  
+</html>
